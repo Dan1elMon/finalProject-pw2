@@ -1,0 +1,15 @@
+<!-- templates/app/products_by_gender.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ gender }} Products</title>
+</head>
+<body>
+    <h1>{{ gender }} Products</h1>
+
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name }} - {{ product.description }}</li>
+        {% endfor %}
+    </ul>
+</body>

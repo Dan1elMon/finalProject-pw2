@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+    <h1>Products</h1>
+
+    <!-- Mostrar las categorías como pestañas -->
+    <ul>
+        {% for category in categories %}
+            <li><a href="#">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <!-- Mostrar los productos para cada categoría -->
+    {% for category in categories %}
+        <h2>{{ category.name }}</h2>
+        <ul>
+            {% for product in products %}
+                {% if product.category == category %}
+                    <li>{{ product.codigo }} - {{ product.name }} - {{ product.description }} - {{ product.gender }}</li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+</html>
