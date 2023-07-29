@@ -2,11 +2,33 @@
 {% load static %}
 {%block title %} Home{% endblock title %}
 
-{%block banner_slider%}
+{%block banner-slider%}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/banner1.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/banner2.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/banner3.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
+      <div class="carousel-item active">
+        <img src="{% static 'app/images/banner/banner2.jpg' %}" class="d-block w-100" alt="banner image">
+      </div>
 
-{% endblock banner_slider%}
+    </div>
+  </div>
+{% endblock banner-slider%}
+{% block information %}
+<div class="container">
+    <div class ="row bg-success text-center p-5 text-white border-bottom shadow">
+        <h1>Products</h1>
+        <small class="fs-5">In this summer a lot of new products are designed for us. This is our oportuinity to get something and use it whatever do you want.</small>
 
-
+</div>
+{% endblock information%}
 {% block main-content %}
     <h1>Welcome, Dairy products site...</h1>
 {% endblock main-content %}
