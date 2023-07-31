@@ -1,6 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+CATEGORY_CHOICES=(
+    ('TS', 'T-shirt'),
+    ('SH', 'Shoes'),
+    ('GA', 'Gaps'),
+    ('JE', 'Jeans')
 
+)
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
@@ -8,18 +14,14 @@ class Category(models.Model):
         return self.name
 
 class Product(models.Model):
-    name = models.CharField(max_length=200)
+    title = models.CharField(max_length=100)
+    selling_price=models.FloatField()
     description = models.TextField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    gender_choices = (
-        ('M', 'Male'),
-        ('F', 'Female'),
-        ('U', 'Unisex'),
-    )
-    gender = models.CharField(max_length=1, choices=gender_choices)
+    category = models.CharField(choices=CATEGORY_CHOICES,max_length=2)
+    product_image=models.ImageField(upload_to='product')
+    def _str_(self):
+        return self.title
 
-    def __str__(self):
-        return self.name
 
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
