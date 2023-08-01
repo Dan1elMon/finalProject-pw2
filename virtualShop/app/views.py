@@ -4,7 +4,7 @@ from django.views import View
 from urllib import request
 from .models import Product
 from django.db.models import Count
-from . forms import CustomerRegistrationForm
+from . forms import CustomerProfileForm, CustomerRegistrationForm
 from django.contrib import messages
 
 
