@@ -1,9 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Product, Category
 from django.views import View
 from urllib import request
-
+from .models import Product
+from django.db.models import Count
 # Create your views here.
 
 def home(request):
@@ -11,5 +11,10 @@ def home(request):
 
 class CategoryView(View):
     def get(self,request,val):
-
+        product = Product.objects.filter(category=val)
+        title = Product.objects.filter(category=val).values('title')
         return render(request, "app/category.html",locals())
+
+class ProductDetail(View):
+    def get(self,request,pk):
+        return render(request,"app/productdetail.html",locals())
