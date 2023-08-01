@@ -4,6 +4,9 @@ from django.views import View
 from urllib import request
 from .models import Product
 from django.db.models import Count
+from . forms import CustomerRegistrationFrom
+
+
 # Create your views here.
 
 def home(request):
@@ -31,3 +34,8 @@ class ProductDetail(View):
     def get(self,request,pk):
         product = Product.objects.get(pk=pk)
         return render(request,"app/productdetail.html",locals())
+    
+class CustomerRegistrationView(View):
+    def get(self,request):
+        form=CustomerRegistrationFrom()
+        return render(request,'app/customerregistration.html',locals())
