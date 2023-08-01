@@ -4,7 +4,9 @@ from django.views import View
 from urllib import request
 from .models import Product
 from django.db.models import Count
-from . forms import CustomerRegistrationFrom
+from . forms import CustomerRegistrationForm
+from django.contrib import messages
+
 
 
 # Create your views here.
@@ -37,5 +39,13 @@ class ProductDetail(View):
     
 class CustomerRegistrationView(View):
     def get(self,request):
-        form=CustomerRegistrationFrom()
+        form=CustomerRegistrationForm()
         return render(request,'app/customerregistration.html',locals())
+    def post(self,request):
+        form= CustomerRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Congratulations! User Register Successfully")
+        else:
+            messages.warning(request,"Invalid Input Data")
+        return render(request, 'app/customerregistration.html',locals())
