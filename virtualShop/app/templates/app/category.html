@@ -8,7 +8,7 @@
             <div class ="col-sm-3">
                 <div class ="list-group">
                     {% for val in title %}
-                        <a href="#" class="list-group-item list-group-item-action" argia-current="true"> 
+                        <a href="#" class="list-group-item list-group-item-action" argia-current="true">
                         {{val.title}}</a>
                     {% endfor %}
                 </div>
@@ -22,7 +22,7 @@
                                 <img src="{{prod.product_image.url}}" width="300px" height="200px">
                                 <div class ="fw-bold">{{prod.title}}</div>
                                 <div class ="fw-bold text-danger">
-                                    Rs.{{prod.discounted_price}}/-
+                                    Price.{{prod.discounted_price}}/$
                                     <small class="fw-light text-decoration-line-throught">{{prod.selling_price}}</small>
                                 </div>
                             </div>
