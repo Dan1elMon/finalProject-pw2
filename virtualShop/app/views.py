@@ -1,29 +1,15 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Product, Category
+from django.views import View
+from urllib import request
 
 # Create your views here.
 
 def home(request):
     return render(request, "app/home.html")
 
-def products_view(request):
-    # Obtener todos los productos de la base de datos ordenados por ID
-    products = Product.objects.all().order_by('id')
+class CategoryView(View):
+    def get(self,request,val):
 
-    # Obtener todas las categorías de la base de datos
-    categories = Category.objects.all()
-
-    context = {
-        'products': products,
-        'categories': categories,
-    }
-    return render(request, 'app/products.html', context)
-
-def product_list_view(request, gender):
-    products = Product.objects.filter(gender=gender)
-    context = {
-        'products': products,
-        'gender': gender,
-    }
-    return render(request, 'products_by_gender.html', context)
+        return render(request, "app/category.html",locals())
