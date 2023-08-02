@@ -17,7 +17,7 @@ urlpatterns = [
 
 
     path('profile/', views.ProfileView.as_view(), name='profile'),
-    path('address/', views.ProfileView.as_view(), name='address'),
+    path('address/', views.address , name='address'),
 
 
     #log auth
