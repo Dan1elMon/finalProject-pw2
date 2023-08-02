@@ -6,7 +6,10 @@ STATE_CHOICES=(
 
     ('Lima','LI'),
     ('Arequipa','AQP'),
-
+    ('Cusco', 'CU'),
+    ('Trujillo', 'T'),
+    ('Chiclayo', 'CL'),
+    ('Piura', 'P'),
 )
 CATEGORY_CHOICES=(
     ('TS', 'T-shirt'),
