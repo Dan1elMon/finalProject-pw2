@@ -39,7 +39,7 @@ urlpatterns = [
 
     path('add-to-cart/', views.add_to_cart, name='add-to-cart'),
     path('cart/', views.show_cart, name='showcart'),
+    path('checkout/', views.show_cart, name='checkout'),
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
- 
