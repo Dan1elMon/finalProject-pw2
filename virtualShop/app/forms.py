@@ -42,8 +42,8 @@ class MyPasswordChangeForm(PasswordChangeForm):
     new_password1 =forms.CharField(label='New Password', widget=forms.PasswordInput(attrs={'autocomplete':'current-password','class':'form-control'}))
     new_password2 =forms.CharField(label='Confirm Password', widget=forms.PasswordInput(attrs={'autocomplete':'current-password','class':'form-control'}))
 
- 
-class MyPasswordResetForm(PasswordChangeForm):
+
+class MyPasswordResetForm(PasswordResetForm):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
 
 
